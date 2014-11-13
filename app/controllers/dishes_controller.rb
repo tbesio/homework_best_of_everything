@@ -5,7 +5,7 @@ class DishesController < ApplicationController
 
   def show
     @dish = Dish.find(params[:id])
-    @cuisine = Cuisine.find(@dish.cuisine_id).name
+    @cuisine = Cuisine.find(@dish.cuisine_id)
   end
 
   def new_form
