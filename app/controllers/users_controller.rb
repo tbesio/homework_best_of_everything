@@ -8,9 +8,9 @@ class UsersController < ApplicationController
     @favorites = Favorite.where({ :user_id => @user.id})
     @favorite_dishes = []
     @favorites.each do |favorite|
-      @favorite_dishes.push([Dish.find(favorite.dish_id),Venue.find(favorite.venue_id)])
+      @favorite_dishes.push([Dish.find(favorite.dish_id).name,Venue.find(favorite.venue_id)])
     end
-
+    @favorite_dishes.sort_by! { |x,y| x }
   end
 
   def new
