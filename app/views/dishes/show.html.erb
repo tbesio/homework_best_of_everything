@@ -9,4 +9,8 @@
   <dt>Cuisine</dt>
   <dd><%= @cuisine.name %></dd>
 
+  <dt>Favorites</dt>
+  <% @favorite_details.each do |venue,user| %>
+    <dd><%= venue.name %> (<%= user.username.capitalize %>)</dd>
+  <% end %>
 </dl>
