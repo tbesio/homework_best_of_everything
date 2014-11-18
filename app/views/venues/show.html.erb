@@ -48,6 +48,11 @@
     </script>
     <div id="map-canvas"></div>
   </dd>
+
+  <dt>Favorite Dishes</dt>
+  <% @favorite_details.each do |dish,user| %>
+    <dd><%= dish.name %> (<%= user.username.capitalize %>)</dd>
+  <% end %>
 </dl>
 
 
