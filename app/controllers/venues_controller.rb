@@ -9,7 +9,7 @@ class VenuesController < ApplicationController
   def show
     @venue = Venue.find(params[:id])
     @neighborhood = Neighborhood.find(@venue.neighborhood_id)
-    @favorites = Favorite.where({ :venue_id => @venue.id })
+    @favorites = Favorite.where({ :venue_id => @venue.id }).order(:dish_id)
 
     @favorite_details = []
     @favorites.each  do |favorite|
