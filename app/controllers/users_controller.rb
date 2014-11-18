@@ -5,6 +5,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @favorites = Favorite.where({ :user_id => @user.id})
+    @favorite_dishes = []
+    @favorites.each do |favorite|
+      @favorite_dishes.push([Dish.find(favorite.dish_id),Venue.find(favorite.venue_id)])
+    end
+
   end
 
   def new
